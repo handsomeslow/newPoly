@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.android.volley.toolbox.NetworkImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/new_img"/>
+
+    <LinearLayout
+        android:id="@+id/new_contextlay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="right"
+            android:layout_marginRight="20dp">
+            <TextView
+                android:layout_margin="@dimen/cell_text_margin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/new_type"
+                android:textSize="@dimen/cell_info_size"
+                android:text="类型"/>
+
+            <TextView
+                android:layout_margin="@dimen/cell_text_margin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/new_realtype"
+                android:textSize="@dimen/cell_info_size"
+                android:text="大类"/>
+
+            <TextView
+                android:layout_margin="@dimen/cell_text_margin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/new_author"
+                android:textSize="@dimen/cell_info_size"
+                android:text="作者"/>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/new_context">
+
+            <TextView
+                android:layout_margin="@dimen/cell_text_margin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/new_title"
+                android:textSize="@dimen/cell_title_size"
+                android:text="这是新闻标题"/>
+
+            <TextView
+                android:layout_marginRight="10dp"
+                android:layout_margin="@dimen/cell_text_margin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/new_date"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="right"
+                android:textSize="@dimen/cell_info_size"
+                android:text="日期"/>
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>
