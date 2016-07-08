@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">newPoly</string>
+    <string name="title_activity_basic">BasicActivity</string>
 </resources>
