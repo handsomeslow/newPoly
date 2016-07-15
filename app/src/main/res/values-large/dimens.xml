@@ -7,4 +7,6 @@
     <dimen name="cell_info_size">15sp</dimen>
 
     <dimen name="cell_text_margin">3sp</dimen>
+
+    <dimen name="cell_year_size">26sp</dimen>
 </resources>

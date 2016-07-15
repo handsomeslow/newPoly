@@ -1,5 +1,6 @@
 package com.example.junxu.newPoly;
 
+import com.alibaba.fastjson.JSON;
 import com.android.volley.NetworkResponse;
 import com.android.volley.ParseError;
 import com.android.volley.Request;
@@ -15,6 +16,7 @@ import java.io.UnsupportedEncodingException;
 public class MyJsonRequeset<T> extends Request<T> {
     private Listener<T> mListener = null;
     Gson mGson;
+    JSON mJson;
     private Class<T> mClass;
 
     public MyJsonRequeset(int method, String url, Response.ErrorListener errlistener) {
@@ -52,7 +54,11 @@ public class MyJsonRequeset<T> extends Request<T> {
         try {
             String strResponse = new String(networkResponse.data,
                     HttpHeaderParser.parseCharset(networkResponse.headers));
-            return Response.success(mGson.fromJson(strResponse, mClass),
+            //GSON方法
+            //return Response.success(mGson.fromJson(strResponse, mClass),
+            //        HttpHeaderParser.parseCacheHeaders(networkResponse));
+            //fastjson方法
+            return Response.success(JSON.parseObject(strResponse, mClass),
                     HttpHeaderParser.parseCacheHeaders(networkResponse));
         } catch (UnsupportedEncodingException e) {
             return Response.error(

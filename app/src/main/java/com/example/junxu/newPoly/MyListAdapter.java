@@ -1,7 +1,6 @@
 package com.example.junxu.newPoly;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
@@ -29,11 +28,15 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder
     private List<TopnewInfo> data;
     private RequestQueue mQueue;
     private ImageLoader mImageLoader;
+    public static DisplayMetrics dm;
 
     public MyListAdapter(Context context, List<TopnewInfo> data) {
         this.context = context;
         this.data = data;
         initImageQueue();
+        dm = new DisplayMetrics();
+        dm = context.getResources().getDisplayMetrics();
+
     }
 
     private void initImageQueue() {
@@ -58,7 +61,6 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder
 
     public interface OnItemClickListener {
         void OnItemClick(View view, int position);
-
         void OnItemLongClick(View view, int position);
     }
 
@@ -95,6 +97,14 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder
                 mOnItemClickListener.OnItemClick(myViewHolder.itemView, i);
             }
         });
+
+        myViewHolder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                mOnItemClickListener.OnItemLongClick(myViewHolder.itemView, i);
+                return false;
+            }
+        });
     }
 
     @Override
@@ -129,7 +139,7 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder
             iv_new.setMaxHeight(dm.heightPixels / 10);
 
             ll = (LinearLayout) itemView.findViewById(R.id.new_contextlay);
-            //ll.setLayoutParams(new LinearLayout.LayoutParams(4 * dm.widthPixels / 5 - 30, dm.heightPixels / 10));
+            ll.setLayoutParams(new LinearLayout.LayoutParams(4 * dm.widthPixels / 5 - 30, dm.heightPixels / 10));
         }
     }
 */
@@ -152,6 +162,10 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder
         ViewHolder(View view) {
             super(view);
             ButterKnife.bind(this, view);
+            newImg.setAdjustViewBounds(true);
+            newImg.setMaxWidth(dm.widthPixels / 5);
+            newImg.setMaxHeight(dm.heightPixels / 10);
+            //newContextlay.setLayoutParams(new LinearLayout.LayoutParams(4 * dm.widthPixels / 5 - 30, dm.heightPixels / 10));
         }
     }
 }
